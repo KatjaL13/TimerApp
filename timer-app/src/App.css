@@ -1,0 +1,227 @@
+* {
+  box-sizing: border-box;
+}
+
+.timer-app {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 16px;
+  background-color: #f8f9fc;
+  color: #242424;
+}
+
+.timer-container {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Zeit einstellen */
+
+.time-setting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 55px;
+}
+
+.time-setting label {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.time-setting input {
+  width: 180px;
+  padding: 12px;
+  border: 2px solid #242424;
+  border-radius: 10px;
+  background: white;
+  color: #242424;
+  font-size: 22px;
+  text-align: center;
+}
+
+/* Runde Stoppuhr */
+
+.stopwatch {
+  width: min(100%, 400px);
+  aspect-ratio: 1;
+  border: 6px solid #242424;
+  border-radius: 50%;
+  padding: 12px;
+  position: relative;
+  background: white;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.watch-face {
+  width: 100%;
+  height: 100%;
+  border: 3px solid #242424;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.watch-face h1 {
+  font-size: clamp(24px, 6vw, 36px);
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Knöpfe oben an der Stoppuhr */
+
+.watch-button {
+  position: absolute;
+  top: -12px;
+  width: 62px;
+  height: 30px;
+  border: 3px solid #242424;
+  border-radius: 50%;
+  background: white;
+  z-index: 1;
+}
+
+.watch-button-left {
+  left: 45px;
+  transform: rotate(-25deg);
+}
+
+.watch-button-right {
+  right: 45px;
+  transform: rotate(25deg);
+}
+
+/* Digitale Zeitanzeige */
+
+.digital-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px;
+  border: 3px solid #242424;
+  border-radius: 12px;
+  max-width: 94%;
+}
+
+.digit {
+  min-width: 38px;
+  height: 58px;
+  border: 2px solid #242424;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 27px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.digit.seconds {
+  min-width: 42px;
+  width: auto;
+  padding: 0 7px;
+  white-space: nowrap;
+}
+
+.decimal-point {
+  font-size: 30px;
+  font-weight: bold;
+  align-self: center;
+  line-height: 1;
+}
+
+.unit {
+  font-size: 20px;
+  margin-left: 2px;
+}
+
+/* Start, Pause und Reset */
+
+.timer-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  width: 100%;
+  margin-top: 45px;
+}
+
+.control-button {
+  flex: 1;
+  padding: 14px 10px;
+  background: white;
+  color: #242424;
+  border: 3px solid #242424;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.control-button:hover {
+  background: #e9ecf3;
+  transform: translateY(-2px);
+}
+
+.control-button:active {
+  transform: translateY(0);
+}
+
+.control-button:disabled {
+  opacity: 0.5;
+  transform: none;
+}
+
+/* Responsive Design */
+
+@media (max-width: 440px) {
+  .stopwatch {
+    width: min(100%, 340px);
+  }
+
+  .watch-face {
+    gap: 20px;
+  }
+
+  .digital-display {
+    gap: 2px;
+    padding: 5px;
+  }
+
+  .digit {
+    min-width: 29px;
+    height: 45px;
+    font-size: 21px;
+  }
+
+  .digit.seconds {
+    min-width: 35px;
+    padding: 0 4px;
+  }
+
+  .decimal-point {
+    font-size: 23px;
+  }
+
+  .unit {
+    font-size: 16px;
+  }
+
+  .control-button {
+    font-size: 16px;
+    padding: 12px 5px;
+  }
+}
